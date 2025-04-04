@@ -1,0 +1,287 @@
+/* General Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    color: #333;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+    min-height: 100vh;
+    display: flex; /* Helps footer stay at bottom if content is short */
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Main Container for Centering Content */
+.main-container {
+    flex-grow: 1; /* Allows container to grow and push footer down */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 60px; /* Space for the fixed footer */
+    text-align: center;
+}
+
+/* Index Page Specific Styles */
+.index-page .main-title {
+    font-size: 2.8em;
+    color: #fff; /* White title for better contrast on bg1 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 40px;
+}
+
+.model-selection {
+    display: flex; /* Use Flexbox for horizontal alignment */
+    justify-content: space-around; /* Distribute space */
+    align-items: flex-end; /* Align items to the bottom */
+    width: 80%;
+    max-width: 1000px; /* Max width for larger screens */
+}
+
+.model-link {
+    text-decoration: none;
+    color: #fff; /* White labels */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.model-link img {
+    max-width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.model-link:hover {
+    transform: scale(1.1); /* Scale up by 10% on hover */
+}
+
+.model-label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Center model might need slight adjustment if sizes differ */
+.center-model {
+    /* Add specific styles if needed, e.g., slightly larger */
+}
+
+
+/* Model Page Specific Styles */
+.model-page-content {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px; /* Limit width */
+    margin: 20px auto; /* Center horizontally */
+    color: #333; /* Darker text color for readability */
+}
+
+.model-page-content h1 {
+    color: #1a237e; /* Dark blue title */
+    margin-bottom: 25px;
+}
+
+.symptom-input-section {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.symptom-input-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.symptom-input-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.symptom-input-section button {
+    padding: 12px 25px;
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.symptom-input-section button:hover {
+    background-color: #218838; /* Darker green */
+}
+
+/* Spinner Styles */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f; /* Blue color */
+    animation: spin 1s ease infinite;
+    margin: 20px auto; /* Center spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none; /* Class to hide elements */
+}
+
+
+/* Result Section Styles */
+.result-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef; /* Light grey background */
+    border-radius: 5px;
+    min-height: 50px; /* Ensure it has some height even when empty */
+    text-align: center;
+    font-size: 1.1em;
+    color: #111;
+}
+.result-section p {
+    margin-bottom: 5px;
+}
+.result-section .prediction {
+    font-weight: bold;
+    color: #dc3545; /* Red color for disease name */
+}
+.result-section .confidence {
+    font-style: italic;
+    color: #555;
+}
+.result-section .error {
+    color: #dc3545; /* Red for errors */
+    font-weight: bold;
+}
+.result-section .warning {
+    color: #ffc107; /* Amber for warnings */
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+
+/* Symptom List Section */
+.symptom-list-section {
+    margin-top: 30px;
+    text-align: left;
+    max-height: 200px; /* Limit height and make scrollable */
+    overflow-y: auto; /* Add scrollbar if needed */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.symptom-list-section h2 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.symptom-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    columns: 2; /* Display symptoms in two columns */
+    column-gap: 20px; /* Space between columns */
+}
+
+.symptom-list li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 8px 15px;
+    background-color: #6c757d; /* Grey */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #5a6268; /* Darker grey */
+}
+
+
+/* Footer Styles */
+footer {
+    position: fixed; /* Fixed at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Pushes items to ends */
+    align-items: center;
+    font-size: 0.9em;
+    z-index: 1000; /* Ensure footer is above other content */
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+/* Responsive Adjustments (Optional) */
+@media (max-width: 768px) {
+    .model-selection {
+        flex-direction: column; /* Stack models vertically on smaller screens */
+        align-items: center;
+        width: 90%;
+    }
+    .model-link {
+        margin-bottom: 30px; /* Add space between stacked items */
+    }
+    .index-page .main-title {
+        font-size: 2em;
+    }
+    .model-page-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .symptom-list {
+        columns: 1; /* Single column on small screens */
+    }
+    footer {
+        font-size: 0.8em;
+        padding: 8px 15px;
+    }
+}

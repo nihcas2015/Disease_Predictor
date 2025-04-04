@@ -1,0 +1,1 @@
+{"disease": "Allergy", "confidence": 0.41}

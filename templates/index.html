@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Predictor - Select Model</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Specific styles for index page background */
+        body {
+            background-image: url("{{ url_for('static', filename='images/bg1.jpg') }}");
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container index-page">
+        <h1 class="main-title">Disease Predictor</h1>
+        <div class="model-selection">
+            <!-- Left Model -->
+            <a href="{{ url_for('model_page', model_type='rf') }}" class="model-link">
+                <img src="{{ url_for('static', filename='images/rf_image.png') }}" alt="Random Forest Model">
+                <span class="model-label">Random Forest</span>
+            </a>
+
+            <!-- Center Model -->
+            <a href="{{ url_for('model_page', model_type='nn') }}" class="model-link center-model">
+                 <!-- Title moved above -->
+                <img src="{{ url_for('static', filename='images/nn_image.png') }}" alt="Neural Network Model">
+                <span class="model-label">Neural Network</span>
+            </a>
+
+            <!-- Right Model -->
+            <a href="{{ url_for('model_page', model_type='lr') }}" class="model-link">
+                <img src="{{ url_for('static', filename='images/lr_image.png') }}" alt="Logistic Regression Model">
+                <span class="model-label">Logistic Regression</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <span class="footer-left">Ayesha Muskan M | 23MIA1131</span>
+        <span class="footer-right">Sachin S | 23MIA1114</span>
+    </footer>
+</body>
+</html>

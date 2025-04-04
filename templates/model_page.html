@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+     <style>
+        /* Specific styles for model page background */
+        body {
+            background-image: url("{{ url_for('static', filename='images/bg2.jpg') }}");
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container model-page-content">
+        <h1>{{ title }}</h1>
+
+        <div class="symptom-input-section">
+            <label for="symptoms-input">Enter Symptoms (comma-separated):</label>
+            <textarea id="symptoms-input" rows="4" placeholder="e.g., itching, headache, high_fever"></textarea>
+            <button id="predict-button" data-model="{{ model_type }}">Run Model</button>
+        </div>
+
+        <div id="spinner" class="spinner hidden"></div> <!-- Loading Spinner -->
+
+        <div id="result-display" class="result-section">
+            <!-- Prediction results will be shown here -->
+        </div>
+
+         <div class="symptom-list-section">
+            <h2>Supported Symptoms:</h2>
+            <ul class="symptom-list">
+                {% for symptom_group in symptoms %}
+                {% for symptom in symptom_group %}
+                    <li class="symptom-item">{{ symptom }}</li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+
+         <a href="{{ url_for('index') }}" class="back-link">Back to Model Selection</a>
+    </div>
+
+    <footer>
+         <span class="footer-left">Ayesha Muskan M | 23MIA1131</span>
+        <span class="footer-right">Sachin S | 23MIA1114</span>
+    </footer>
+
+    <!-- Include JavaScript at the end -->
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</body>
+</html>
